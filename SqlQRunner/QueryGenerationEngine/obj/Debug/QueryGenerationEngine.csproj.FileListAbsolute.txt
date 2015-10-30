@@ -1,0 +1,8 @@
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\bin\Debug\QueryGenerationEngine.dll
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\bin\Debug\QueryGenerationEngine.pdb
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\bin\Debug\Dapper.dll
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\bin\Debug\Dapper.pdb
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\bin\Debug\Dapper.xml
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\obj\Debug\QueryGenerationEngine.csprojResolveAssemblyReference.cache
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\obj\Debug\QueryGenerationEngine.dll
+C:\Github\SqlQRunner\SqlQRunner\QueryGenerationEngine\obj\Debug\QueryGenerationEngine.pdb
