@@ -25,7 +25,7 @@ namespace QueryGenerationEngine
         public DapperQueryGenerationEngine()
             : this(new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
         {
-            
+
         }
 
         public bool HasWhereParameter
@@ -35,7 +35,7 @@ namespace QueryGenerationEngine
 
         public bool HasWhereStatement
         {
-            get{ return _whereStatements.Any(); }
+            get { return _whereStatements.Any(); }
         }
 
         public string CombinedWhereStatement
@@ -46,7 +46,8 @@ namespace QueryGenerationEngine
         public bool MatchAnyWhereStatement { get; set; }
 
         public string PreQuery { get; set; }
-        public string SelectQuery { get; set; }
+        public List<string> SelectQueryFields { get; set; }
+        public int NumResults { get; set; }
         public string BaseQuery { get; set; }
 
         public void LoadQueryParameter(string key, object value)
@@ -66,20 +67,24 @@ namespace QueryGenerationEngine
             if (!string.IsNullOrEmpty(PreQuery))
                 sb.AppendLine(PreQuery);
 
-            if (!string.IsNullOrEmpty(SelectQuery))
+            if (SelectQueryFields.Any())
             {
-                sb.AppendLine(SelectQuery);
-                sb.AppendLine("FROM ( ");
+                sb.AppendLine(" SELECT ");
+                if (NumResults > 0)
+                    sb.AppendLine(" TOP " + NumResults);
+                sb.AppendLine(string.Join(", ", SelectQueryFields));
+                sb.AppendLine(" FROM ( ");
             }
             sb.AppendLine(BaseQuery);
 
-            if (!string.IsNullOrEmpty(SelectQuery))
+            if (SelectQueryFields.Any())
             {
                 sb.AppendLine(") baseQuery ");
             }
 
             if (!string.IsNullOrEmpty(CombinedWhereStatement))
             {
+                sb.AppendLine(" WHERE ");
                 sb.AppendLine(CombinedWhereStatement);
             }
 
